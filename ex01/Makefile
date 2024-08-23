@@ -1,4 +1,4 @@
-NAME := Fixed
+NAME := Fixed2
 FLAGS := -Wall -Wextra -Werror -std=c++98
 FILES := main.cpp Fixed.cpp
 OBJ := $(FILES:.cpp=.o)
