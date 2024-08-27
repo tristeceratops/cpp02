@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 15:17:23 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/08/26 18:26:40 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:37:51 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,17 @@ Fixed	Fixed::operator-(const Fixed &rhs)
 Fixed	Fixed::operator*(const Fixed &rhs)
 {
 	Fixed f;
-	f.setRawBits(this->_raw * rhs.getRawBits());
+	long long result = (long long)this->_raw * rhs._raw;
+	f.setRawBits((int)(result >> _bits));
 	return f;
 }
 
-//gerer div par 0
 Fixed	Fixed::operator/(const Fixed &rhs)
 {
 	Fixed f;
-	f.setRawBits(this->_raw / rhs.getRawBits());
+	if (rhs.getRawBits() == 0)
+		return std::cout << "Div by 0 not supported" << std::endl, f;
+	f.setRawBits((this->_raw / rhs.getRawBits()) << _bits); //fonctionne si resultat <= 1
 	return f;
 }
 
