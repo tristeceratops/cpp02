@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 15:17:23 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/08/27 13:37:51 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/08/28 14:40:06 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ bool	Fixed::operator==(const Fixed &rhs)
 
 bool	Fixed::operator!=(const Fixed &rhs)
 {
-	return this->_raw == rhs._raw;
+	return this->_raw != rhs._raw;
 }
 
 Fixed	Fixed::operator+(const Fixed &rhs)

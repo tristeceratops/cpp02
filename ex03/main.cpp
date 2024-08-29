@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 15:17:19 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/08/27 17:21:03 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/08/28 15:13:41 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int main() {
               << std::endl;
 
     // Test 4: Point coincides with a vertex of the triangle
-    Point p4(0.0f, 0.0f);
+    Point p4 = a;
     std::cout << "Test 4 (Point coincides with a vertex): " 
               << (bsp(a, b, c, p4) ? "Failed" : "Passed") 
               << std::endl;
 
     // Test 5: Degenerate case (collinear points)
-    Point a2(0.0f, 0.0f);
+    Point a2(p4);
     Point b2(5.0f, 5.0f);
     Point c2(10.0f, 10.0f);
     Point p5(7.5f, 7.5f);  // Point on the line formed by a2, b2, c2
@@ -74,5 +74,14 @@ int main() {
               << (bsp(a3, b3, c3, p7) ? "Failed" : "Passed") 
               << std::endl;
 
+
+	//Test 8: little triangle
+	Point a5(-2.7f, 0.0f);
+	Point b5(-2.6f, 0.0f);
+	Point c5(-2.65f, 0.11f);
+	Point p8(-2.63f, 0.03f);
+	std::cout << "Test 8 (little triangle): " 
+			  << (bsp(a5, b5, c5, p8) ? "Passed" : "Failed") 
+			  << std::endl;
     return 0;
 }
